@@ -70,7 +70,6 @@ namespace Test
                     }                    
                 }
                 visitedNodes.Add(currnode.Data);
-                string itemnotvisitedandminimumvalue;
                 string minnodekey = null;
                 int minnodevalue = int.MaxValue;
                 foreach (var item in weightedRoutes)
