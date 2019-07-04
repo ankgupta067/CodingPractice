@@ -14,7 +14,7 @@ namespace Test
 			//var qs = new QuickSort<int>();
 			//var inputarray = new int[] { 4,8,3,7,2,9,8 };
 			//qs.Sort(inputarray, 0,inputarray.Length-1);
-            new amazonquestion().Init();
+            new amazonquestion2().Init();
             Console.Read();
 
         }

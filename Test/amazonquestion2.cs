@@ -6,72 +6,63 @@ namespace Test
 {
 	class amazonquestion2
 	{
-		int bestroute = int.MaxValue;
-		public Tuple<bool,int> findbest (int i, int j, int numrows, int numcolumns, int[,] lot, int steps, bool[,] visited){
-			if (visited[i,j])
+		public void Init()
+		{
+			var lot = new int[,]
 			{
-				return new Tuple<bool, int>(false, 0); ;
-			}
+				{ 1,0,1,0 },
+				{1,1,1,9 },
+				{0,1,1,1 },
+				{0,0,0,0 }
+			};
+			removeObstacle(4, 4, lot);
+
+		}
+
+		int bestroute = int.MaxValue;
+		public bool findbest (int i, int j, int numrows, int numcolumns, int[,] lot, int steps, bool[,] visited,int count){
+			
 			if (i >= numrows || i < 0)
 			{
-				new Tuple<bool, int>(false, 0);
+				return false;
 			}
 			if (j >= numcolumns || j < 0)
 			{
-				new Tuple<bool, int>(false, 0);
+				return false;
+			}
+			if (visited[i, j])
+			{
+				return false;
 			}
 			if (lot[i,j] == 9)
 			{
-				return new Tuple<bool, int>(true,0);
+				if (count < bestroute)
+				{
+					bestroute = count;
+				}
+				return true;
 			}
 			if (lot[i,j] == 0)
 			{
-				new Tuple<bool, int>(false, 0);
+				return false;
 			}
 			visited[i, j] = true;
-			var result = int.MaxValue;
-			var res = findbest(i + 1, j, numrows, numcolumns, lot, steps,visited);
-			if ((res.Item1))
-			{
-				if (res.Item2 + 1 < result)
-				{
-					result = res.Item2 + 1;
-				}
+			var o1 = findbest(i + 1, j, numrows, numcolumns, lot, steps, visited, count + 1);
+			var o2 = findbest(i - 1, j, numrows, numcolumns, lot, steps, visited, count + 1);
+			var o3 = findbest(i, j + 1, numrows, numcolumns, lot, steps, visited, count + 1);
+			var o4 =  findbest(i, j - 1, numrows, numcolumns, lot, steps, visited, count + 1);
+			if (o1 || o2 || o3 || o4){			
+			visited[i, j] = false;
+				return true;
 			}
-			res = findbest(i - 1, j, numrows, numcolumns, lot, steps,visited);
-			if ((res.Item1))
-			{
-				if (res.Item2 + 1 < result)
-				{
-					result = res.Item2 + 1;
-				}
-			}
-
-			res = findbest(i, j+1, numrows, numcolumns, lot, steps, visited);
-			if ((res.Item1)){
-				if (res.Item2 + 1 < result)
-				{
-					result = res.Item2 + 1;
-				}
-			}
-
-			res = findbest(i , j-1, numrows, numcolumns, lot, steps, visited);
-			if ((res.Item1))
-			{
-				if (res.Item2 + 1 < result)
-				{
-					result = res.Item2 + 1;
-				}
-			}
-			if (result == int.MaxValue)
-			{
-				return new Tuple<bool, int>(false, int.MaxValue);
-			}
-			return new Tuple<bool, int>(true,result);
+			visited[i, j] = false;
+			return false;
 		}
-		public int removeObstacle(int numRows, int numColumns, int[,] lot)
+		public void removeObstacle(int numRows, int numColumns, int[,] lot)
 		{
-		  Console.WriteLine(findbest(0, 0, numRows, numColumns,lot, 0, new bool[numRows, numColumns]));
+		 if(findbest(0, 0, numRows, numColumns,lot, 0, new bool[numRows, numColumns],1)){
+				Console.WriteLine(bestroute);
+			}
 		}
 	}
 }

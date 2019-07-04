@@ -27,7 +27,7 @@ namespace Test.Trie
 			node.Childs = new TrieNode[26];
 			for (int i = 0; i < 26; i++)
 			{
-				node.Childs[i] = default;
+				//node.Childs[i] = default;
 			}
 			return node;
 		}
@@ -79,7 +79,7 @@ namespace Test.Trie
 			{
 				if (!currnode.Childs.Any(x => !x.Equals(default(TrieNode))))
 				{
-					currnode = default;
+					//currnode = default;
 				}
 				return true;
 			}
@@ -92,7 +92,7 @@ namespace Test.Trie
 				}
 				if (!currnode.Childs.Any(x => !x.Equals(default(TrieNode))))
 				{
-					currnode = default;
+					//currnode = default;
 				}
 				return true;
 			}
