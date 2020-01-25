@@ -25,8 +25,8 @@ namespace Test
         public void Init()
         {
             
-            int[] s = new int[] { 2, 5, 3, 6 };
-            int n = 10;
+            int[] s = new int[] { 1,2,3 };
+            int n = 3;
             var mem = new int[s.Length, n+1];
             for (int i = 0; i < s.Length; i++)
             {
