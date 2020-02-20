@@ -6,7 +6,7 @@ namespace uipath
     {
         static void Main(string[] args)
         {
-            new CoinChangeProblem().Init();
+            new urlifyastring().Init();
             Console.ReadLine();
         }
     }
