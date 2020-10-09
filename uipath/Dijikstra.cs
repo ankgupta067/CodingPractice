@@ -1,9 +1,9 @@
 ﻿using System;
 namespace uipath
 {
-    public class urlifyastring
+    public class Dijikstra
     {
-        public urlifyastring()
+        public Dijikstra()
         {
         }
     }

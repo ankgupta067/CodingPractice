@@ -1,9 +1,9 @@
 ﻿using System;
 namespace uipath
 {
-    public class urlifyastring
+    public class MinHeapGeneric
     {
-        public urlifyastring()
+        public MinHeapGeneric()
         {
         }
     }

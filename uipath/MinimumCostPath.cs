@@ -1,9 +1,9 @@
 ﻿using System;
 namespace uipath
 {
-    public class urlifyastring
+    public class MinimumCostPath
     {
-        public urlifyastring()
+        public MinimumCostPath()
         {
         }
     }
